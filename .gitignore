@@ -4,6 +4,11 @@
 # The license is CC 1.0 Universal
 # For the license please see https://github.com/github/gitignore/blob/master/LICENSE
 
+# Data files
+data/*
+!data/.gitkeep
+
+
 # History files
 .Rhistory
 .Rapp.history
