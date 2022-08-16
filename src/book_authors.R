@@ -1,6 +1,4 @@
-"""
-This script extracts a list of authors that have been read / are being read.
-"""
+## This script extracts a list of authors that have been read / are being read.
 
 setwd("~/GitHub/books-of-the-world/src")
 
@@ -28,5 +26,13 @@ read_books <- books_data %>%
 read_lit <- read_books %>%
   filter(str_detect(bookshelves, "lit-" ))
 
-authors <- read_lit$author
+authors <- read_lit$author %>% noquote() %>% unique()
+
+write.table(authors, 
+            file.path(data_path, "book_authors_list.csv"),
+            sep=",",
+            col.names=FALSE,
+            row.names=FALSE
+            )
+
 
